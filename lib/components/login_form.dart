@@ -20,7 +20,7 @@ class LoginFormState extends State<LoginForm> {
       child: Column(
         children: <Widget>[
           TextFormField(
-            key: const Key('emailKey'),
+            key: const Key('authEmailKey'),
             validator: (value) {
               if (value == '') return 'Введите email';
               if (!validateEmail(value??'')) {
@@ -32,7 +32,7 @@ class LoginFormState extends State<LoginForm> {
             decoration: const InputDecoration(labelText: 'Email'),
           ),
           TextFormField(
-            key: const Key('phoneKey'),
+            key: const Key('authPhoneKey'),
             validator: (value) {
               if (value == '') return 'Введите телефон';
               return null;

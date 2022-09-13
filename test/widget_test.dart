@@ -10,7 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:testing/utils/validate_email.dart';
 
 import 'package:testing/views/login_view.dart';
-
+//
 void main() {
   group('Login view tests', () {
     testWidgets("test description", (WidgetTester tester) async {
@@ -24,12 +24,11 @@ void main() {
       final fieldFinderEmail = find.byKey(const Key('authEmailKey'));
       final fieldFinderPhone = find.byKey(const Key('authPhoneKey'));
       final fieldFinderSubmit = find.text('Отправить');
-      // test('Login test', () async {
+      String email = '';
       expect(fieldFinderEmail, findsOneWidget);
       expect(fieldFinderSubmit, findsOneWidget);
       expect(fieldFinderPhone, findsOneWidget);
 
-      String email = '';
       bool isValid = validateEmail(email);
       await tester.enterText(fieldFinderEmail, email);
       await tester.tap(fieldFinderSubmit);
@@ -43,8 +42,7 @@ void main() {
       await tester.pump();
       expect(find.text('Поле email заполнено не корректно'),
           isValid ? findsNothing : findsOneWidget);
-      // });
-      
+
       String phone = '';
       await tester.enterText(fieldFinderPhone, phone);
       await tester.tap(fieldFinderSubmit);
@@ -58,6 +56,8 @@ void main() {
       await tester.tap(fieldFinderSubmit);
       await tester.pump();
       expect(find.text('Добро пожаловать'), findsOneWidget);
+
+
     });
   });
 }
